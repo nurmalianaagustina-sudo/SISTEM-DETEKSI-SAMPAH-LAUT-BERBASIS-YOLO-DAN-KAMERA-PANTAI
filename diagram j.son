@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "Gemini",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-v1", "id": "esp32", "top": 0, "left": 0 },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -190, "left": -180 },
+    { "type": "wokwi-pir-sensor", "id": "pir1", "top": 150, "left": -180 },
+    { "type": "wokwi-oled-12864-i2c", "id": "oled1", "top": 40, "left": -280 },
+    { "type": "wokwi-photoresistor", "id": "ldr1", "top": -40, "left": 280 },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 180, "left": 280 },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 60, "left": 280 },
+    { "type": "wokwi-potentiometer", "id": "mq135", "top": -160, "left": 240 }
+  ],
+  "connections": [
+    [ "esp32:GND.1", "dht1:GND", "black", [ "v0" ] ],
+    [ "esp32:3V3", "dht1:VCC", "red", [ "v0" ] ],
+    [ "esp32:D4", "dht1:SDA", "purple", [ "v0" ] ],
+    
+    [ "esp32:GND.1", "oled1:GND", "black", [ "v0" ] ],
+    [ "esp32:3V3", "oled1:VCC", "red", [ "v0" ] ],
+    [ "esp32:D21", "oled1:SDA", "blue", [ "v0" ] ],
+    [ "esp32:D22", "oled1:SCL", "cyan", [ "v0" ] ],
+    
+    [ "esp32:GND.1", "pir1:GND", "black", [ "v0" ] ],
+    [ "esp32:3V3", "pir1:VCC", "red", [ "v0" ] ],
+    [ "esp32:D13", "pir1:OUT", "purple", [ "v0" ] ],
+    
+    [ "esp32:D34", "ldr1:SIG", "orange", [ "v0" ] ],
+    [ "esp32:3V3", "ldr1:VCC", "red", [ "v0" ] ],
+    [ "esp32:GND.1", "ldr1:GND", "black", [ "v0" ] ],
+    
+    [ "esp32:D35", "mq135:SIG", "orange", [ "v0" ] ],
+    [ "esp32:3V3", "mq135:VCC", "red", [ "v0" ] ],
+    [ "esp32:GND.1", "mq135:GND", "black", [ "v0" ] ],
+    
+    [ "esp32:D25", "bz1:1", "green", [ "v0" ] ],
+    [ "esp32:GND.1", "bz1:2", "black", [ "v0" ] ],
+    
+    [ "esp32:D32", "relay1:IN", "purple", [ "v0" ] ],
+    [ "esp32:GND.1", "relay1:GND", "black", [ "v0" ] ],
+    [ "esp32:VIN", "relay1:VCC", "red", [ "v0" ] ]
+  ]
+}
